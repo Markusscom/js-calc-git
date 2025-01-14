@@ -33,6 +33,28 @@
             output.textContent = "Rezultāts: " + result;
         }
         function validateUserInput() {
+            let errorMessages = [];
+            let errors = {
+                1: "Pirmais skaitlis nav ievadīts",
+                2: "Otrais skaitlis nav ievadīts",
+                3: "Kļūdains operātors",
+            };
+
+            if (isNaN(n1)) {
+                errorMessages.push(errors[1]);
+            }
+            if (isNaN(n2)) {
+                errorMessages.push(errors[2]);
+            }
+            if (op !== "+" && op !== "-" && op !== "*" && op !== "/") {
+                errorMessages.push(errors[3]);
+            }
+
+            if (errorMessages.length > 0) {
+                output.textContent = errorMessages.join(" ");
+                return false;
+            }
+
             return true;
         }
         function calc(n1, n2, op) {
