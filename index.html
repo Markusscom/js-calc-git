@@ -58,7 +58,21 @@
             return true;
         }
         function calc(n1, n2, op) {
-            return num1 + num2
+            switch (op) {
+                case "+":
+                    return n1 + n2;
+                case "-":
+                    return n1 - n2;
+                case "*":
+                    return n1 * n2;
+                case "/":
+                    if (n2 === 0) {
+                        return "Ar nulli nevar dalīt";
+                    }
+                    return n1 / n2;
+                default:
+                    return "Nepazīstams operators";
+            }
         }
     }
 </script>
