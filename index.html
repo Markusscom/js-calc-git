@@ -10,7 +10,7 @@
 <body>
     <input type="text" id="Number1">
     <input type="text" id="Operator">
-    <input type="text" id="Num2">
+    <input type="text" id="Number2">
     <button id="CalculateBtn">Rēķināt</button>
     <div id="Output"></div>
 </body>
@@ -40,14 +40,14 @@
                 3: "Kļūdains operātors",
             };
 
-            if (isNaN(n1)) {
+            if (isNaN(num1)) {
                 errorMessages.push(errors[1]);
             }
-            if (isNaN(n2)) {
-                errorMessages.push(errors[2]);
-            }
-            if (op !== "+" && op !== "-" && op !== "*" && op !== "/") {
+            if (operator !== "+" && operator !== "-" && operator !== "*" && operator !== "/") {
                 errorMessages.push(errors[3]);
+            }
+            if (isNaN(num2)) {
+                errorMessages.push(errors[2]);
             }
 
             if (errorMessages.length > 0) {
@@ -57,19 +57,19 @@
 
             return true;
         }
-        function calc(n1, n2, op) {
-            switch (op) {
+        function calc(num1, num2, operator) {
+            switch (operator) {
                 case "+":
-                    return n1 + n2;
+                    return num1 + num2;
                 case "-":
-                    return n1 - n2;
+                    return num1 - num2;
                 case "*":
-                    return n1 * n2;
+                    return num1 * num2;
                 case "/":
-                    if (n2 === 0) {
+                    if (num2 === 0) {
                         return "Ar nulli nevar dalīt";
                     }
-                    return n1 / n2;
+                    return num1 / num2;
                 default:
                     return "Nepazīstams operators";
             }
