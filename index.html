@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulators</title>
 </head>
+
 <body>
     <input type="text" id="Num1">
     <input type="text" id="Operator">
@@ -13,5 +15,30 @@
     <div id="output"></div>
 </body>
 <script>
+    let num1Input = document.getElementById("number1");
+    let operatorInput = document.getElementById("operator");
+    let num2Input = document.getElementById("number2");
+    let btn = document.getElementById("btn");
+    let output = document.getElementById("output");
+
+    btn.addEventListener("click", handleClick);
+
+    function handleClick() {
+        let num1 = parseInt(num1Input.value);
+        let num2 = parseInt(num2Input.value);
+        let operator = operatorInput.value;
+
+        if (validateUserInput(num1, num2, operator)) {
+            let result = calc(num1, num2, operator);
+            output.textContent = "Rezultāts: " + result;
+        }
+        function validateUserInput() {
+            return true;
+        }
+        function calc(n1, n2, op) {
+            return num1 + num2
+        }
+    }
 </script>
+
 </html>
